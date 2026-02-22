@@ -8,8 +8,20 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
-      <h2>Extracurricular Activities</h2>
+      <div class="header-row">
+        <div>
+          <h1>Mergington High School</h1>
+          <h2>Extracurricular Activities</h2>
+        </div>
+        <div class="user-menu">
+          <button id="user-menu-btn" class="user-icon-btn" type="button" aria-label="User menu">👤</button>
+          <div id="auth-panel" class="auth-panel hidden">
+            <p id="auth-status">Browsing as student</p>
+            <button id="open-login-btn" type="button">Login</button>
+            <button id="logout-btn" type="button" class="hidden">Logout</button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -23,6 +35,7 @@
 
       <section id="signup-container">
         <h3>Sign Up for an Activity</h3>
+        <p id="signup-locked-message" class="info">Teacher login required to register or unregister students.</p>
         <form id="signup-form">
           <div class="form-group">
             <label for="email">Student Email:</label>
@@ -40,6 +53,26 @@
         <div id="message" class="hidden"></div>
       </section>
     </main>
+
+    <div id="login-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <div class="modal-content">
+        <h3 id="login-title">Teacher Login</h3>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="teacher-username">Username:</label>
+            <input type="text" id="teacher-username" required />
+          </div>
+          <div class="form-group">
+            <label for="teacher-password">Password:</label>
+            <input type="password" id="teacher-password" required />
+          </div>
+          <div class="modal-actions">
+            <button type="submit">Login</button>
+            <button type="button" id="cancel-login-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <footer>
       <p>&copy; 2023 Mergington High School</p>
